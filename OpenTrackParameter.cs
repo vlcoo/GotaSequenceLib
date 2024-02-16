@@ -1,51 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace GotaSequenceLib {
+namespace GotaSequenceLib;
+
+/// <summary>
+///     Open track parameter.
+/// </summary>
+public class OpenTrackParameter
+{
+    /// <summary>
+    ///     Label text.
+    /// </summary>
+    public string Label;
+
+    public int m_Index;
 
     /// <summary>
-    /// Open track parameter.
+    ///     Offset.
     /// </summary>
-    public class OpenTrackParameter {
+    public UInt24 Offset = 0;
 
-        /// <summary>
-        /// Track number.
-        /// </summary>
-        public byte TrackNumber;
+    /// <summary>
+    ///     Reference command.
+    /// </summary>
+    public SequenceCommand ReferenceCommand;
 
-        /// <summary>
-        /// Offset.
-        /// </summary>
-        public UInt24 Offset = 0;
+    /// <summary>
+    ///     Track number.
+    /// </summary>
+    public byte TrackNumber;
 
-        /// <summary>
-        /// Reference command.
-        /// </summary>
-        public SequenceCommand ReferenceCommand;
-
-        /// <summary>
-        /// Command index used when reading and writing.
-        /// </summary>
-        /// <param name="commands">The commands.</param>
-        public int Index(List<SequenceCommand> commands) {
-            int ind = m_Index;
-            if (ReferenceCommand != null) {
-                if (ReferenceCommand.Index(commands) != -1) {
-                    ind = ReferenceCommand.Index(commands);
-                }
-            }
-            return ind;
-        }
-        public int m_Index;
-
-        /// <summary>
-        /// Label text.
-        /// </summary>
-        public string Label;
-
+    /// <summary>
+    ///     Command index used when reading and writing.
+    /// </summary>
+    /// <param name="commands">The commands.</param>
+    public int Index(List<SequenceCommand> commands)
+    {
+        var ind = m_Index;
+        if (ReferenceCommand != null)
+            if (ReferenceCommand.Index(commands) != -1)
+                ind = ReferenceCommand.Index(commands);
+        return ind;
     }
-
 }

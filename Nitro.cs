@@ -1,21 +1,21 @@
-﻿using GotaSoundIO.IO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using GotaSoundIO.IO;
 
-namespace GotaSequenceLib {
+namespace GotaSequenceLib;
 
+/// <summary>
+///     Nintendo DS.
+/// </summary>
+public class Nitro : SequencePlatform
+{
     /// <summary>
-    /// Nintendo DS.
+    ///     Command map.
     /// </summary>
-    public class Nitro : SequencePlatform {
-        /// <summary>
-        /// Command map.
-        /// </summary>
-        /// <returns>The commands mapped.</returns>
-        public override Dictionary<SequenceCommands, byte> CommandMap() => new Dictionary<SequenceCommands, byte>() {
+    /// <returns>The commands mapped.</returns>
+    public override Dictionary<SequenceCommands, byte> CommandMap()
+    {
+        return new Dictionary<SequenceCommands, byte>()
+        {
             { SequenceCommands.Wait, 0x80 },
             { SequenceCommands.ProgramChange, 0x81 },
             { SequenceCommands.OpenTrack, 0x93 },
@@ -66,21 +66,25 @@ namespace GotaSequenceLib {
             { SequenceCommands.LoopEnd, 0xFC },
             { SequenceCommands.Return, 0xFD },
             { SequenceCommands.AllocateTrack, 0xFE },
-            { SequenceCommands.Fin, 0xFF },
+            { SequenceCommands.Fin, 0xFF }
         };
-
-        /// <summary>
-        /// Extended commands.
-        /// </summary>
-        /// <returns>The extended commands mapped.</returns>
-        public override Dictionary<SequenceCommands, byte> ExtendedCommands() => new Dictionary<SequenceCommands, byte>() {};
-
-        /// <summary>
-        /// Sequence data byte order.
-        /// </summary>
-        /// <returns>The byte order of sequence data.</returns>
-        public override ByteOrder SequenceDataByteOrder() => ByteOrder.LittleEndian;
-
     }
 
+    /// <summary>
+    ///     Extended commands.
+    /// </summary>
+    /// <returns>The extended commands mapped.</returns>
+    public override Dictionary<SequenceCommands, byte> ExtendedCommands()
+    {
+        return new Dictionary<SequenceCommands, byte>();
+    }
+
+    /// <summary>
+    ///     Sequence data byte order.
+    /// </summary>
+    /// <returns>The byte order of sequence data.</returns>
+    public override ByteOrder SequenceDataByteOrder()
+    {
+        return ByteOrder.LittleEndian;
+    }
 }

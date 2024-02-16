@@ -1,96 +1,87 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace GotaSequenceLib.Playback;
 
-namespace GotaSequenceLib.Playback {
+/// <summary>
+///     Note playback info.
+/// </summary>
+public class NotePlayBackInfo
+{
+    /// <summary>
+    ///     Attack.
+    /// </summary>
+    public byte Attack = 127;
 
     /// <summary>
-    /// Note playback info.
+    ///     Base key.
     /// </summary>
-    public class NotePlayBackInfo {
+    public byte BaseKey = 60;
 
-        /// <summary>
-        /// Wave Id. Duty cycle if PSG.
-        /// </summary>
-        public int WaveId;
+    /// <summary>
+    ///     Decay.
+    /// </summary>
+    public byte Decay = 127;
 
-        /// <summary>
-        /// Wave archive Id.
-        /// </summary>
-        public int WarId;
+    /// <summary>
+    ///     Hold. TODO!!!
+    /// </summary>
+    public byte Hold = 0;
 
-        /// <summary>
-        /// Instrument type.
-        /// </summary>
-        public InstrumentType InstrumentType;
+    /// <summary>
+    ///     Instrument type.
+    /// </summary>
+    public InstrumentType InstrumentType;
 
-        /// <summary>
-        /// Attack.
-        /// </summary>
-        public byte Attack = 127;
+    /// <summary>
+    ///     Linear interpolation. TODO!!!
+    /// </summary>
+    public bool IsLinearInterpolation = false;
 
-        /// <summary>
-        /// Decay.
-        /// </summary>
-        public byte Decay = 127;
+    /// <summary>
+    ///     Key group. TODO!!!
+    /// </summary>
+    public byte KeyGroup = 0;
 
-        /// <summary>
-        /// Sustain.
-        /// </summary>
-        public byte Sustain = 127;
+    /// <summary>
+    ///     Pan.
+    /// </summary>
+    public byte Pan = 64;
 
-        /// <summary>
-        /// Hold. TODO!!!
-        /// </summary>
-        public byte Hold = 0;
+    /// <summary>
+    ///     Percussion mode. TODO!!!
+    /// </summary>
+    public bool PercussionMode = false;
 
-        /// <summary>
-        /// Release.
-        /// </summary>
-        public byte Release = 127;
+    /// <summary>
+    ///     Release.
+    /// </summary>
+    public byte Release = 127;
 
-        /// <summary>
-        /// Base key.
-        /// </summary>
-        public byte BaseKey = 60;
+    /// <summary>
+    ///     Surround pan. TODO!!!
+    /// </summary>
+    public sbyte SurroundPan;
 
-        /// <summary>
-        /// Pan.
-        /// </summary>
-        public byte Pan = 64;
+    /// <summary>
+    ///     Sustain.
+    /// </summary>
+    public byte Sustain = 127;
 
-        /// <summary>
-        /// Surround pan. TODO!!!
-        /// </summary>
-        public sbyte SurroundPan;
+    /// <summary>
+    ///     Tune. TODO!!!
+    /// </summary>
+    public float Tune = 1f;
 
-        /// <summary>
-        /// Volume. TODO!!!
-        /// </summary>
-        public byte Volume = 127;
+    /// <summary>
+    ///     Volume. TODO!!!
+    /// </summary>
+    public byte Volume = 127;
 
-        /// <summary>
-        /// Key group. TODO!!!
-        /// </summary>
-        public byte KeyGroup = 0;
+    /// <summary>
+    ///     Wave archive Id.
+    /// </summary>
+    public int WarId;
 
-        /// <summary>
-        /// Tune. TODO!!!
-        /// </summary>
-        public float Tune = 1f;
-
-        /// <summary>
-        /// Percussion mode. TODO!!!
-        /// </summary>
-        public bool PercussionMode = false;
-
-        /// <summary>
-        /// Linear interpolation. TODO!!!
-        /// </summary>
-        public bool IsLinearInterpolation = false;
-
-    }
-
+    /// <summary>
+    ///     Wave Id. Duty cycle if PSG.
+    /// </summary>
+    public int WaveId;
 }
